@@ -352,6 +352,7 @@ contract DSCEngine {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(
             s_priceFeeds[token]
         );
+
         (, int256 price, , , ) = priceFeed.staleCheckLastestRoundData();
         return (uint256(price) * ADDITION_FEED_PRECISION * amount) / PRECISION;
     }
